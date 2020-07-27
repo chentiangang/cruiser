@@ -1,0 +1,9 @@
+global:
+  alertmanager_api: "http://192.168.38.160:9093/api/v2/alerts"
+  interval: 1m
+  timeout: 10s
+
+
+url_config:
+  include:
+    - "./conf.d/example.yml"

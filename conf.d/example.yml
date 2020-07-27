@@ -1,0 +1,48 @@
+- url: "http://hq.sinajs.cn/list=sz002307"
+  request:
+    method: "GET"
+  trigger_by:
+    # 当该字符串不存在于返回结果中发送报警给alertmanager
+    response_contains: ["北新路桥"]
+  alert:
+    labels:
+      severity: critical
+    annotations:
+      description: "test api monitor"
+
+
+- url: "https://xxxx.com"
+  request:
+    method: "POST"
+    data: '{xxx}'
+    add_header:
+      key: value
+  trigger_by:
+    # 此处传入一个正则表达式，没有匹配到正则表达式则发送报警给alertmanager
+    match_re: re.*
+  alert:
+    labels:
+      severity: critical
+    annotations:
+      description: "POST接口监控"
+
+
+- url: "https://xxxx.com"
+  request:
+    method: "POST"
+    data: '{xxx}'
+    # 监控间隔，默认为全局配置中的Interval
+    interval: 30s
+    # 请求超时时间,默认为全局配置中的timeout,
+    timeout: 10s
+    add_header:
+      key: value
+  trigger_by:
+    # 如果返回值不等于预期的字符串则发送报警给alertmanager
+    expected: "response"
+  # 用法参考promethues rule里面的labels.
+  alert:
+    labels:
+      severity: critical
+    annotations:
+      description: "接口监控"
