@@ -1,0 +1,21 @@
+global:
+  alertmanager_api: "http://172.22.12.147:9093/api/v2/alerts"
+  interval: 1m
+  timeout: 10s
+
+
+url_config:
+  account_id: "MM-O_1000166"
+  secret_key_id: "MM-O_1000166"
+  secret_key: "1da312fc-4974-450e-92c8-75b6706226b1"
+  include:
+    - "./conf/url/apifinyBroker.yml"
+    - "./conf/url/homePage.yml"
+    - "./conf/url/gbbo-monitor.yml"
+    - "./conf/url/apifinyMarketData.yml"
+
+
+
+heartbeat_config:
+  include:
+    - "conf/heartbeat.yml"

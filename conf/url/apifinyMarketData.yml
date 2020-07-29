@@ -1,0 +1,15 @@
+- url: "https://api.apifiny.com/md/orderbook/v1/BTCUSD"
+  request:
+    method: "GET"
+    interval: 5m
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+      signature: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiIxOWI3NjlhNTAyOTI0MmM3YjIxMyJ9.FojL7BeTLTqmh6W0wowL0_c0ZOGmGFjp9k4x6TAfWZ8'
+  trigger_by:
+    response_contains: ["symbol","updateAt","asks","bids"]
+  alert:
+    labels:
+      service: url_alert_test
+    annotations:
+      description: "COB监控"
+

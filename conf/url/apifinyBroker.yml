@@ -1,0 +1,112 @@
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: "{}"
+    signature: true
+    api_method: "utils.listVenueInfoLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "venue": "KRAKENUK"}'
+    signature: true
+    api_method: "utils.listCurrencyLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "venue": "KRAKENUK"}'
+    signature: true
+    api_method: "utils.listSymbolInfoLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "venue": ""}'
+    signature: true
+    api_method: "account.queryAccountInfoLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "venue": "KRAKENUK"}'
+    signature: true
+    api_method: "asset.listBalanceByLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "venue": "KRAKENUK", "currency": "btc"}'
+    signature: true
+    api_method: "asset.queryAddressLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166", "orderId": "O_10001661592292846541233", "venue": "BINANCE", "orderInfo": {"symbol": "BTCUSDT", "orderType": "LIMIT", "quantity": 0.004, "limitPrice": 6000, "orderSide": "BUY", "timeInForce": 3}}'
+    signature: true
+    api_method: "order.insertOrderLite"
+    replace_order_id: true
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://api.apifiny.com/gx/openApi/v1"
+  request:
+    method: "POST"
+    data: '{"accountId": "MM-O_1000166"}'
+    signature: true
+    api_method: "order.listOpenOrderLite"
+    add_header:
+      Content-Type: 'application/json;charset=utf-8;'
+  trigger_by:
+    match_re: '{"result":.*"error":null}'
+  alert:
+    labels:
+      service: url_alert_test

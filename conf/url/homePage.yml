@@ -1,0 +1,21 @@
+# 请求的url
+- url: "https://clients.apifiny.com"
+  request:
+    # 请求方法，POST & GET
+    method: "GET"
+  # 如果请求后的结果能和正则表达式匹配到数据，说明接口正常,否则发送报警
+  trigger_by:
+    match_re: '<title>.*</title>'
+  # 报警lables配置, alertmanager可以根据labels路由到具体的人或组
+  alert:
+    labels:
+      service: url_alert_test
+
+- url: "https://www.tresso.com"
+  request:
+    method: "GET"
+  trigger_by:
+    match_re: '<title>.*</title>'
+  alert:
+    labels:
+      service: url_alert_test

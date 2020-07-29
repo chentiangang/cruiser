@@ -1,0 +1,13 @@
+- url: "https://apifiny.99ss.cf/api/sso/user/login"
+  request:
+    method: "POST"
+    data: '{"email":"apitest004@yopmail.com","password":"316a2de1c2d5045c30fae8a63125c799280692bab5148e8ec47715d0e7643cff","personType":"GOOGLE","personCode":"03AGdBq26Nnh-d9o5IZ-6r23hw3ESKyDjC0xO9l9pOBwpFhcybxXUlu3aV4qkKAsqEdBtkp5JFfCWcaTWFncpx0IA-k3JcZNjXoVGjhx6ewmBzpRkhBn7HEeCILsn44WXpgrVdwNOSh3ZM9r8onq5Mjd7zd2hgqPa4qiNO50jp8oqa4okjIZB2D2m7aVM5kqumZ3vcFr36umzTTSkoO_OeSnXwHiCZ3cNoVB2DS8vJMCgbqxUknz2r3I0tEX__co6ii4AEwR3iLAsdLDMK9A2hgsLVOxU7DrQvCtfU_JUiBD-q1YzwOXGR6Dj3KGx10ovHWlAx9Z0Fn00e1Mk_7q6fOBjo3QFWIvrnDNPudrQtJunv-tKCIj2p0Hj--HqYBWKjjEiUzE2s8j1ILOIofsPrIQ8Q2jneO4B9bw","domainCode":"APIFINY","deviceType":"WEB","language":"EN"}'
+    add_header:
+      authority: 'apifiny.99ss.cf'
+      content-type: 'application/json;charset=UTF-8;'
+  trigger_by:
+    match_re: '{"code":"Cx000016","message":"Incorrect username or password","data":".*"}'
+  alert:
+    labels:
+      service: url_alert_test
+

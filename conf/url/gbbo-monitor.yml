@@ -1,0 +1,31 @@
+- url: "http://172.22.1.53:8988/gbbo-monitor/exchange/getAvailableExchanges"
+  request:
+    method: "GET"
+    interval: 30s
+  trigger_by:
+    response_contains:
+      - OKEX
+      - KUCOIN
+      - HUOBIINDONESIA
+      - COINBASEPRO
+      - KRAKEN
+      - BITBAY
+      - KORBIT
+      - INDODAX
+      - INDEPENDENTRESERVE
+      - HUOBI
+      - GEMINI
+      - COINONE
+      - COINBASEPROUK
+      - BITTREX
+      - BITSTAMP
+      - BITHUMB
+      - BITFLYERUS
+      - BINANCEUS
+      - COINFLOOR
+      - KRAKENUK
+  alert:
+    labels:
+      service: url_alert_test
+    annotations:
+      description: "OEC监控"
